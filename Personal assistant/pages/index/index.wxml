@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<view wx:if='{{isAuthorized}}'>
+
+ <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">你可能会喜欢的电影：</view>
+    <image src='{{imageUrl1}}' style="width: {{viewWidth}}px; height: {{viewHeigh}}px;" src="{{imageUrl1}}" bindload="imageLoad" ></image>
+    <image src='{{imageUrl2}}' style="width: {{viewWidth}}px; height: {{viewHeigh}}px;" src="{{imageUrl2}}" bindload="imageLoad" ></image>
+    <view class="weui-panel__bd">
+        
+    </view>
+  </view>
+
+  <!-- 天气 -->
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">您关心的城市：</view>
+    <view class="weui-panel__bd">
+      <navigator url="" wx:for='{{weatherData}}' wx:key="*this" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <!-- 天气图表示例 -->
+          <image class="weui-media-box__thumb" src="../../resources/icons/weather/sunny.svg" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{item.city_info.province}}-{{item.city_info.city}}-{{item.city_info.area}}</view>
+          <view class="weui-media-box__desc">
+            <text>温度：{{item.temperature}}度 风况：{{item.wind_direction}}{{wind_strength}}</text>
+          </view>
+          <view class="weui-media-box__desc">
+            <text>对湿度：{{item.humidity}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 股票 -->
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">您关心的股票：</view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text" wx:for='{{stockData}}' wx:key="*this">
+        <view class="weui-media-box__title weui-media-box__title_in-text" wx:if='{{item.is_rising}}'>{{item.name}} (+ {{item.sub}})</view>
+        <view class="weui-media-box__title weui-media-box__title_in-text" wx:else>{{item.name}} (-{{item.sub}})</view>
+        <view>当前：{{item.now_price}}</view>
+        <view class="weui-media-box__info">
+          <view class="weui-media-box__info__meta">最高：{{item.today_max}}</view>
+          <view class="weui-media-box__info__meta">最低：{{item.today_min}}</view>
+          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">开盘：{{item.start_price}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 星座-->
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">你关心的星座：</view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text" wx:for="{{constellationData}}" wx:key="*this">
+        <view class="weui-media-box__title weui-media-box__title_in-text">{{item.name}}</view>
+        <!-- <view class="weui-media-box__desc">{{item.text}}</view> -->
+        <view class="weui-article__p">{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 推荐电影 -->
+  <!-- <view class="weui-panel weui-panel_access"> -->
+    <!-- <view class="weui-panel__hd">你可能会喜欢的电影：</view> -->
+    <!-- <view class="weui-panel__bd"> -->
+        <!-- <image src='../../resources/images/movies.jpg' style='width:{{viewWidth}}px;height:10px;'></image> -->
+        <!-- <view class="weui-media-box__title weui-media-box__title_in-text">Kicking & Screaming</view> -->
+        <!-- <view class="weui-media-box__desc">{{item.text}}</view> -->
+        <!-- <view class="weui-article__p" >(2005),Comedy</view> -->
+    <!-- </view> -->
+  <!-- </view> -->
+</view>
+
+<view wx:else>
+  <text class='td'>请先切换至个人页登录</text>
+  <image src='{{imageUrl}}' style="width: {{viewWidth}}px; height: {{viewHeigh}}px;" src="{{imageUrl}}" bindload="imageLoad" ></image>
+</view>

@@ -1,0 +1,47 @@
+<!--pages/backup/backup.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">图片备份</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">待上传图片</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{needUploadFiles}}" wx:key="*this">
+                  <view class="weui-uploader__file" data-type="UploadView" bind:longpress="longTapConfirm" data-id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+              </view>
+              <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page__bd page__bd_spacing button-sp-area">
+      <button class="weui-btn" type="primary" bindtap='uploadFiles'>确认上传</button>
+      <!-- <button class="weui-btn" type="primary" bindtap='downloadFile'>下载图片</button>
+      <button class="weui-btn" type="primary" bindtap='deleteBackup'>删除图片</button> -->
+    </view>
+
+
+
+    <!-- 已上传图片 -->
+    <view class="weui-cells">
+      <view class="text-center">已备份图片</view>
+      <view class="weui-cell" wx:for="{{downloadedBackupedFiles}}">
+        <image class="" src="{{item.path}}" mode="aspectFill" data-index="{{index}}" data-type="DownloadedView" bindlongtap="longTapConfirm" />
+      </view>
+    </view>
+    <view class='text-center' wx:if="{{downloadedBackupedFiles.length == 0}}">暂无</view>
+  </view>
+</view>

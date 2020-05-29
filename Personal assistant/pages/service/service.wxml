@@ -1,0 +1,36 @@
+<!--pages/service/service.wxml-->
+<view>
+  <view> <!-- 判断service的类型 -->
+    <view class="weui-panel weui-panel_access" wx:if="{{isConstellationView}}">
+      <view class="weui-panel__hd">今天星座运势：</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text" wx:for="{{constellationData}}" wx:key="*this">
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{item.name}}</view>
+          <!-- <view class="weui-media-box__desc">{{item.text}}</view> -->
+          <view class="weui-article__p">{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-panel weui-panel_access"  wx:if="{{isJokeView}}">
+      <view class="weui-panel__hd">今日笑话：</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text" wx:for="{{jokeData}}" wx:key="*this">
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+          <view class="weui-article__p" wx:if="{{item.content}}">{{item.content}}</view>
+          <view class="weui-article__p"wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-panel weui-panel_access"  wx:if="{{isMoviesView}}">
+      <view class="weui-panel__hd">今日电影推荐：</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text" wx:for="{{jokeData}}" wx:key="*this">
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+          <view class="weui-article__p" wx:if="{{item.content}}">{{item.content}}</view>
+          <view class="weui-article__p"wx:if="{{item.text}}">{{item.text}}</view>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+</view>

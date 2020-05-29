@@ -1,0 +1,28 @@
+{
+  "result_code": 0,
+  "message": "success",
+  "data": [
+    {
+      "city_info": {
+        "province": "广东省",
+        "city": "深圳市",
+        "area": "南山区"
+      },
+      "temperature": 29,
+      "cloud": "多云",
+      "cloud_code": "CLOUD",
+      "wind": "东风"
+    },
+    {
+      "city_info": {
+        "province": "北京市",
+        "city": "北京市",
+        "area": "朝阳区"
+      },
+      "temperature": 29,
+      "cloud": "微风",
+      "cloud_code": "WIND",
+      "wind": "东风"
+    }
+  ]
+}

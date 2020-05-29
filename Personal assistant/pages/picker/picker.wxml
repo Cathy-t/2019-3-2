@@ -1,0 +1,50 @@
+<!--pages/picker/picker.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title"></view>
+    <view class="page__desc"></view>
+  </view>
+  <view class="page__bd">
+    <view wx:if="{{isCityPicker}}">
+      <view class="weui-cells__title">我关心的城市</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view wx:for="{{personal.city}}" class="weui-cell " data-index='{{index}}' data-type='city' bind:longpress="deleteItem">
+          <view class="weui-cell__bd">{{item.province}}-{{item.city}}-{{item.area}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:elif="{{isStockPicker}}">
+      <view class="weui-cells__title">我关心的股票</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view wx:for="{{personal.stock}}" class="weui-cell" data-index='{{index}}' data-type='stock' bind:longpress="deleteItem">
+          <view class="weui-cell__bd">{{item.fullInfo}}
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{isConstellPicker}}">
+      <view class="weui-cells__title">我关心的星座</view>
+      <view wx:if="{{isConstellPicker}}" class="weui-cells weui-cells_after-title">
+        <view wx:for="{{personal.constellation}}" class="weui-cell " data-index='{{index}}' data-type='constellation' bind:longpress="deleteItem">
+          <view class="weui-cell__bd">{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-btn-area">
+    <picker wx:if="{{isConstellPicker}}" bindchange="bindConstellationPickerChange" range="{{allPickerData.allConstellation}}">
+      <button type="default">添加星座</button>
+    </picker>
+    <picker wx:if="{{isStockPicker}}" bindchange="bindStockPickerChange" range-key="{{'fullInfo'}}" range="{{allPickerData.allStock}}">
+      <button type="default">添加股票</button>
+    </picker>
+    <picker wx:if="{{isCityPicker}}" class="weui-btn" mode="region" data-name="region" value="{{['广东省', '深圳市', '南山区']}}" bindchange="bindRegionPickerChange">
+      <button type="default">添加城市</button>
+    </picker>
+    <button class="weui-btn" type="primary" bindtap='onSave'>保存</button>
+  </view>
+</view>

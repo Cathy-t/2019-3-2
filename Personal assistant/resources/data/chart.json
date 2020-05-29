@@ -1,0 +1,62 @@
+{
+  "result_code": 0,
+  "message": "success",
+  "data": {
+    "name": "腾讯股票",
+    "code": "00700",
+    "value": [
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      },
+      {
+        "timestamp": 1539440365,
+        "value": 267
+      }
+    ]
+  }
+}
